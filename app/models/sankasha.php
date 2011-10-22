@@ -1,0 +1,88 @@
+<?php
+class Sankasha extends AppModel{
+	var $name = 'Sankasha';
+
+	//参加者情報入力フォームのバリデーションチェック用の配列
+	public $validate = array(
+		'sei'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'姓を記入して下さい'
+		),
+		'mei'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'名前を記入して下さい'
+		),
+		'sei_kana'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'セイを記入して下さい'
+		),
+		'mei_kana'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'メイを記入して下さい'
+		),
+		'sex'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'性別を選択して下さい'
+		),
+		'birthday'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'生年月日を選択して下さい'
+		),
+		'post_id'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'郵便番号を記入して下さい'
+		),
+		'state'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'都道府県を選択して下さい'
+		),
+		'city'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'市町村を記入して下さい'
+		),
+		'addr'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'番地を記入して下さい'
+		),
+		'tel'=>array(
+				array(
+					'rule'=>'notEmpty',
+					'message'=>'電話番号を記入して下さい'
+				),
+				array(
+					'rule'=>'numeric',
+					'message'=>'電話番号は数字で記入して下さい'
+				)
+		),		
+		'mail'=>array(
+				array(
+					'rule'=>'notEmpty',
+					'message'=>'メールアドレスを記入して下さい'
+				),
+				array(
+					'rule'=>array('custom','/.[@]./s'),
+					'required'=>true,
+					'message'=>'正しいメールアドレスを記入して下さい'
+				)
+		),
+		'country'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'国籍を選択して下さい'
+		),
+		'job'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'職業を記入して下さい'
+		),
+		'school_grade'=>array(
+			'rule'=>'notEmpty',
+			'message'=>'学年を選択して下さい'
+		)
+	);
+
+	//引数に指定されたIDと一致した参加者の情報を取得するメソッド
+	function findSankasha($whereSankasha = null){
+		return $this->find('all',
+				    array('conditions'=>$whereSankasha)
+				  );
+	}
+}

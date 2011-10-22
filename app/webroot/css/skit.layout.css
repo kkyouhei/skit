@@ -1,0 +1,96 @@
+
+/*====================================================
+	全体的なスタイル
+====================================================*/
+* {
+	margin:0;									/* 全要素のマージンをリセット */
+	padding:0;									/* 全要素のパディングをリセット */
+	line-height:1.5;							/* 全要素の行の高さを1.5倍にする */
+	color:#333333;								/* 文字色 */
+}
+body {
+	background-color:#999999;					/* ページ全体の背景色 */
+	text-align:center;							/* IE5.5以下でセンタリングするための対策 */
+}
+div#pagebody {
+	margin:0px 0px;								/* 内容全体をセンタリング (top,bottom,right,left) */
+	text-align:left;							/* テキストの配置を左揃えにする */
+	background-color:#ffffff;					/* 内容全体の背景色 */
+	/* width:auto; */
+}
+
+
+/*====================================================
+	Header
+====================================================*/
+div#header {
+	height:77px;								/* 指定しなくてもいいか・・・？ */
+	width:100%;
+	background-color:#009933;					/* header部分の背景色 */
+}
+h1 {
+	padding:20px 0px 0px 30px;					/* 見出し内容の位置調整 */
+	font-family:Arial, Helvetica, sans-serif;	/* フォントの種類 */
+}
+h1 a {
+	text-decoration:none;						/* リンクの下線を無くす */
+}
+
+
+/*====================================================
+	Menu
+====================================================*/
+#menu{
+	margin: 0;
+	padding: 0;
+	width:auto;
+}
+#menu ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#menu li{
+	float: left;
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+#menu a{
+	text-align: center;							/*  */
+	display:block;								/*  */
+	padding: 0.5em 0;							/*  */
+	width: 100%;								/*  */
+	background-color: black;					/*  */
+	color: white;								/*  */
+}
+#menu a:hover{
+	background-color: red;						/*  */
+	color: white;								/*  */
+}
+
+
+/*====================================================
+	Contents
+====================================================*/
+div#contents {
+	width:900px;									
+	margin:0 auto;						/* 幅の指定と位置調整 (top,bottom,right,left) */
+	/* text-align:center; */
+}
+
+
+/*====================================================
+	Footer
+====================================================*/
+div#footer {
+	height:42px;								/*  */
+	width:100%;									/*  */
+	text-align:center;							/*  */
+	background-color:#cccccc;					/*  */
+}
+address {
+	font-style:normal;							/* フォントスタイルを標準にする */
+	font-size:small;							/* フォントサイズを小さくする */
+	padding:5px 0px 5px 0px;					/* 要素内容の位置調整 */
+}

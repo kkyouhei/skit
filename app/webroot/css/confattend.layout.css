@@ -1,0 +1,13 @@
+#contents{
+	/*background:url(../img/bg_con.gif) repeat-y;*/
+	width:80%;/*682px;*/
+	margin:auto;
+	text-align:left;
+	}
+#contents p{
+	margin:auto;
+	}
+#contents form{
+	margin:auto;
+	}
+}

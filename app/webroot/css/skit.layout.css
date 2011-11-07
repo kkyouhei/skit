@@ -24,30 +24,31 @@ div#pagebody {
 ====================================================*/
 div#header {
 	width:100%;									/* 縦幅100% */
-	height:35px;								/* 横幅50px */
+	height:35px;								/* 横幅35px */
 	margin:0;
 	padding:0;
-	background-color:#009933;					/* header背景色 */
-	overflow:hidden;							/* header内のmenu落ち防止(親ボックスに設置すること) */
+	background-color:#009933;					/* header背景色#009933 */
+	overflow:hidden;							/* header内のmenu落ち防止(親に設置すること) */
 	font-size:90%;
+	filter:alpha(opacity=50);
 }
 
 #header ul{
-	list-style-type:none;
-	margin:0;
-	padding:auto;
+	list-style-type:none;						/*   */
+	margin:0;									/*   */
+	padding:auto;								/*   */
 }
 #header li{
-	float:left;
-	width:auto;
-	margin:0;
-	padding:2px;
+	float:left;									/*   */
+	width:auto;									/*   */
+	margin:0;									/*   */
+	padding:2px;								/*   */
 }
 #header a{
 	text-align:center;							/*  */
 	display:block;								/*  */
 	padding:0.5em 0;							/*  */
-	width:auto;									/*  */
+	width:auto;									/* 幅 */
 	text-decoration:none;						/* リンクの下線を無くす */
 	color:white;								/*  */
 
@@ -66,7 +67,6 @@ div#header {
 div#contents {
 	width:90%;									
 	margin:10px 5% 10px 5%;						/* 幅の指定と位置調整 (top,left,bottom,right) */
-	background-color: green;
 }
 
 /*====================================================
@@ -76,17 +76,16 @@ div#main {
 	width:80%;
 	height:auto;
 	margin:10px auto 10px auto;
-	background-color: purple;
 }
 
 /*====================================================
 	Footer
 ====================================================*/
 div#footer {
-	height:42px;								/*  */
-	width:100%;									/*  */
-	text-align:center;							/*  */
-	background-color:#cccccc;					/*  */
+	height:42px;								/* 高さ */
+	width:100%;									/* 幅 */
+	text-align:center;							/* テキスト位置 */
+	background-color:#cccccc;					/* 背景色 */
 }
 address {
 	font-style:normal;							/* フォントスタイルを標準にする */

@@ -19,16 +19,9 @@
 	
 		<!-- Header -->
 		<div id="header">
-			<h1>
-				<a hrer="index.html">SKiT</a>
-			</h1>
-		</div>
-		<!-- Header End-->
-		
-		<!-- Menu -->
-		<div id="menu">
+
 			<ul>
-				<li id="menu01"><a href="http://localhost/skit/index">HOME</a></li>
+				<li id=contens01"><a href="http://localhost/skit/index">HOME</a></li>
 				<li id="menu02"><a href="http://localhost/skit/addstudent">個人情報登録</a></li>
 				<li id="menu03"><a href="http://localhost/skit/opencampus">オープンキャンパス予約</a></li>
 				<li id="menu04"><a href="http://localhost/skit/experience">体験入学予約</a></li>
@@ -37,13 +30,17 @@
 				<li id="menu06"><a href="http://localhost/skit/createqr/">ハガキ作成</a></li>
 			</ul>
 		</div>
-		<!-- Menu End -->
+		<!-- Header End-->
 		
 		<!-- Contents -->
 		<div id="contents">
+			<!-- Main -->
+			<div id="main">
 				<?php
 					echo $content_for_layout;
 				?>
+			</div>
+			<!-- Main End -->
 		</div>
 		<!-- Content End -->
 		

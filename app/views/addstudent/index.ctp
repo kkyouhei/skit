@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="contents">
-		<h4>参加者の情報を登録する画面です addstudent/index.ctp</h4>
+		<h4 class="selectorH4">参加者の情報を登録する画面です addstudent/index.ctp</h4>
 
 		<?php
 		if(!empty($errors)){
@@ -20,7 +20,7 @@
 		}
 		?>
 
-		<fieldset>
+
 		<div id="form">
 			<?php
 			//氏名入力フォーム作成
@@ -141,7 +141,7 @@
 			echo $form->end('登録');
 			?>
 		</div>
-		</fieldset>
+
 	</div>
 </body>
 </html>

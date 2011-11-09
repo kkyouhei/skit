@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="contents">
-		<p>体験入学の予約を行う画面です opencampus/index.ctp</p>
+		<h4 class="selectorH4">体験入学の予約を行う画面です opencampus/index.ctp</h4>
 		<div id="form">
 			<?php	
 			//検索フォームの作成

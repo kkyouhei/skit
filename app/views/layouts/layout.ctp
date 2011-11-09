@@ -19,7 +19,6 @@
 	
 		<!-- Header -->
 		<div id="header">
-
 			<ul>
 				<li id=contens01"><a href="http://localhost/skit/index">HOME</a></li>
 				<li id="menu02"><a href="http://localhost/skit/addstudent">個人情報登録</a></li>
@@ -43,6 +42,8 @@
 			<!-- Main End -->
 		</div>
 		<!-- Content End -->
+		
+
 		
 		<!-- Footer  -->
 		<div id="footer">

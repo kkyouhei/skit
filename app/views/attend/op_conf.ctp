@@ -21,6 +21,7 @@
 			echo $reservData['am_field'] . "：";
 			echo $reservData['pm_field'] . " ：";
 			echo $reservData['tel'] . "：";
+
 			//予約レコードのattend項目を出席にアップデートするために必要な項目
 			//予約番号から検索するので一件しかヒットしない事が前提
 			echo $form->create(null, array('type'=>'post', 'action'=>'updateRecord'));

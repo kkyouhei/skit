@@ -5,7 +5,7 @@ class AddStudentController extends AppController{
 	public $layout = 'layout';
 
 	//ヘルパーと自作拡張ヘルパー呼び出しの下準備
-	var $helpers = array('Form', 'Exform');
+	var $helpers = array('Form', 'Exform', 'javascript');
 //	public $scaffold;
 
 	//申込者の個人情報を入力するための入力フォーム

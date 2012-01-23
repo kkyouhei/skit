@@ -15,9 +15,13 @@
 		<p>イベントの予約を行う画面です experience/reserv.ctp</p>
 		<?php
 			echo "<p>" , "{$sankasha[1]}{$sankasha[2]}さんの予約を行います" , "</p>";
+			
+			echo $form->error('Reserv.event_day');
+			echo $form->error('Reserv.dept');
 			//イベント予約フォーム
 			echo $form->create(null,array('type'=>'post','action'=>"conf/{$sankasha[0]}"));
-			echo $this->element('select_eventday');
+			echo $form->select('Reserv.event_day',$event_day,null,
+					array('empty'=>'日付を選択して下さい'),null);	
 			//学科を表示させるリストボックスを生成
 			echo '<p>' , '参加コース' , '</p>';
 			echo $this->element('select_experience');

@@ -1,20 +1,7 @@
 <?php
 class Event extends AppModel{
 	var $name = 'Event' ;
-
-	//イベント予約フォームのバリデーションチェック用の配列
-	public $validate = array(
-		'event_day'=>array(
-				'rule'=>'notEmpty',
-				'message'=>'日付を選択して下さい'),
-		'amField'=>array(
-				'rule'=>'notEmpty',
-				'message'=>'分野を選択して下さい'),
-		'pmField'=>array(
-				'rule'=>'notEmpty',
-				'message'=>'分野を選択して下さい')
-				);
-
+	
 	//conditionsの配列を受け取り検索するメソッド
 	function findEvent($whereEvent=null, $field=null, $order=null){
 		return $this->find('all',

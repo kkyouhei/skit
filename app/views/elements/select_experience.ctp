@@ -4,5 +4,5 @@
 			'ゲーム企画科'=>'ゲーム企画科',
 			'電気工学科'=>'電気工学科',
 			'CG映像科'=>'CG映像科');
-	echo $form->select('Event.dept', $depts, '学科を選択', array('showParent'=>true, 'empty'=>'学科を選択'), null);
+	echo $form->select('Reserv.dept', $depts, '学科を選択', array('showParent'=>true, 'empty'=>'学科を選択'), null);
 ?>

@@ -14,10 +14,13 @@
 	<div id="contents">
 		<p>イベントの予約を行う画面です event/reserv.ctp</p>
 		<?php
+			echo $form->error('Reserv.event_day');
+			echo $form->error('Reserv.amField');
 			echo "<p>" , "{$sankasha[1]}{$sankasha[2]}さんの予約を行います" , "</p>";
 			//イベント予約フォーム
 			echo $form->create(null,array('type'=>'post','action'=>"conf/{$sankasha[0]}"));
-			echo $this->element('select_eventday');
+			echo $form->select('Reserv.event_day',$event_day,null,
+					array('empty'=>'日付を選択して下さい'),null);	
 			//分野を表示させるリストボックスを生成
 			echo '<p>' , '午前の部' , '</p>';
 			echo $this->element('select_am_opencampus');

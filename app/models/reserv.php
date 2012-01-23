@@ -2,6 +2,29 @@
 class Reserv extends AppModel{
 	var $name = 'Reserv';
 
+	//OP予約フォームのバリデーションチェック用の配列
+	public $validate = array(
+		'event_day'=>array(
+				'rule'=>'notEmpty',
+				'message'=>'日付を選択して下さい'),
+		'amField'=>array(
+				'rule'=>array('isSetFields', 'Reserv.amField', 'Reserv.pmField'),
+				'message'=>'必ず一つは分野を選択して下さい'),
+		'dept'=>array(
+				'rule'=>array('notEmpty'),
+				'message'=>'学科を選択してください'
+		)
+	);
+
+	//OP予約画面のバリデーションルール
+	function isSetFields(){
+		if(!empty($this->data['Reserv']['amField']) || !empty($this->data['Reserv']['pmField'])){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	var $belongsTo = array('Sankasha'=>array(
 						'className'  => 'Sankasha',
 						'foreignKey' => 'sankasha_id'

@@ -41,15 +41,15 @@
 		<br />
 		学年：<?php echo $sankasha[17]; ?>
 		<br />
-		イベント日：<?php echo $event['event_day']; ?>
+		イベント日：<?php echo $reserv['event_day']; ?>
 		<br />
-		参加希望コース：<?php echo $event['dept']; ?>
+		参加希望コース：<?php echo $reserv['dept']; ?>
 	
 		<?php
 		echo $form->create(null, array('type'=>'post', 'action'=>'addRecord'));
 		echo $form->hidden('Reserv.sankasha_id', array('value'=>$sankasha[0]));
-		echo $form->hidden('Reserv.event_day', array('value'=>$event['event_day']));
-		echo $form->hidden('Reserv.dept_id', array('value'=>$event['dept']));
+		echo $form->hidden('Reserv.event_day', array('value'=>$reserv['event_day']));
+		echo $form->hidden('Reserv.dept_id', array('value'=>$reserv['dept']));
 		echo $form->end('登録');
 		?>
 

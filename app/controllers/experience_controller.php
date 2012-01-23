@@ -38,13 +38,43 @@ class ExperienceController extends AppController{
 		for($i=0 ; $i<count($event_day) ; $i++){
 			$event_day[$i] = array($event_day[$i]['Event']['event_day'] => $event_day[$i]['Event']['event_day']); 
 		}
+		foreach($event_day as $key => $val){
+			foreach($val as $key => $val){
+				$temp[$i] = $val;
+				$i++;
+			}
+		}
+		$event_day = array_combine($temp, $temp);
 		$this->set('event_day',$event_day);
 	}
 
 	function conf(){
 		$sankasha = $this->params['form']['sankasha'];
+		$this->set('reserv', $this->data['Reserv']);
 		$this->set('sankasha', $sankasha);
-		$this->set('event', $this->data['Event']);
+
+		$this->Reserv->set($this->data['Reserv']);
+		$error = $this->validateErrors($this->Reserv);
+		if($error){
+			$sankasha = $this->params['form']['sankasha'];
+				//イベント日の取得して、select_eventday.ctpで使用する$event_dayへイベント日をセット
+				$event_day = $this->Event->findEventDay('体験入学');
+				//findEventDayで取得した配列は二次元配列になっているので、一次元配列へ整形する処理
+				for($i=0 ; $i<count($event_day) ; $i++){
+					$event_day[$i] = array($event_day[$i]['Event']['event_day'] => $event_day[$i]['Event']['event_day']); 
+				}
+				foreach($event_day as $key => $val){
+					foreach($val as $key => $val){
+						$temp[$i] = $val;
+						$i++;
+					}
+				}
+				$event_day = array_combine($temp, $temp);
+				$this->set('event_day',$event_day);
+					
+			$this->set('errors', $error);
+			$this->render($action = 'reserv');
+		}
 	}
 
 	function addRecord(){

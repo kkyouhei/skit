@@ -7,20 +7,22 @@
 	<?php echo $title_for_layout; ?>
 </title>
 <head>
-<?php
-	echo $html->css('createqr.layout');
-?>
+<?php echo $html->css('createqr.layout'); ?>
 </head>
 <body>
 	<div id="contents">
 	<p>QRコードを生成する単位を選択</p>
 		<div id="form">
-		<?php
-			echo $form->create(null,array('type'=>'post', 'action'=>'selectQr'));
-			echo $form->radio('qr',array('Event'=>'イベント','Reserv'=>'個別'),
-						 array('legend'=>'QR生成単位を選択', 'value'=>'Event'));
-			echo $form->end('次へ');	
-		?>
+			<?php
+				echo $form->create(null,array('type'=>'post','action'=>'qrPrint'));
+				for($i=0 ; $i<count($event) ; $i++){
+					echo $form->checkbox($i+1, array('value'=>$event[$i]['Event']['event_day']));
+					echo $form->label($i+1, $event[$i]['Event']['event_day']);
+					echo $form->label($event[$i]['Event']['event_name'] ,$event[$i]['Event']['event_name']);
+					echo "<br>";
+				}
+				echo $form->end('印刷');
+			?>
 		</div>
 	</div>
 <body>

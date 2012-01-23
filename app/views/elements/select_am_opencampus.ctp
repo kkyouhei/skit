@@ -6,5 +6,5 @@
 			'ミュージック分野'=>'ミュージック分野',
 			'IT分野'=>'IT分野',
 			'電気・電子分野'=>'電気・電子分野');
-	echo $form->select('Event.amField', $amFields, '分野を選択', array('showParent'=>true, 'empty'=>'分野を選択'), null);
+	echo $form->select('Reserv.amField', $amFields, '分野を選択', array('showParent'=>true, 'empty'=>'分野を選択'), null);
 ?>

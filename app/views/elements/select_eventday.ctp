@@ -10,6 +10,6 @@
 	}
 	$event_day = array_combine($temp, $temp);
 
-	echo $form->select('Event.event_day',$event_day,null,
+	echo $form->select('Field.event_day',$event_day,null,
 					array('empty'=>'日付を選択して下さい'),null);	
 ?>

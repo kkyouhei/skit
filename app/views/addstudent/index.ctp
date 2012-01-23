@@ -13,6 +13,11 @@
 <body>
 	<div id="contents">
 		<h4 class="selectorH4">参加者の情報を登録する画面です addstudent/index.ctp</h4>
+		<?php
+			//javascriptの読み込み
+			echo $javascript->link('ajaxzip2/prototype.js');
+			echo $javascript->link('ajaxzip2/ajaxzip2.js');
+		?>
 
 		<?php
 		if(!empty($errors)){
@@ -60,7 +65,9 @@
 
 			//郵便番号入力フォーム
 			echo $form->label('Sankasha.post_id','郵便番号');
-			echo $form->text('Sankasha.post_id');
+			echo $form->text('Sankasha.post_id',array('onKeyUp'=>'AjaxZip2.zip2addr(this, "state", "city")',
+								  'maxlength'=>8
+								 ));
 			echo "<br />";
 
 			//都道府県を選択フォーム

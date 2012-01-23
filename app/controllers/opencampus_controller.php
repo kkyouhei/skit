@@ -1,7 +1,7 @@
 <?php
 class OpencampusController extends AppController{
 	public $name = 'Opencampus';
-	public $uses = array('Sankasha', 'Event', 'Reserv');
+	public $uses = array('Sankasha', 'Event', 'Reserv', 'Field');
 	public $layout = 'layout';
 
 	//通常のヘルパーと拡張ヘルパーの下準備
@@ -35,22 +35,35 @@ class OpencampusController extends AppController{
 		for($i=0 ; $i<count($event_day) ; $i++){
 			$event_day[$i] = array($event_day[$i]['Event']['event_day'] => $event_day[$i]['Event']['event_day']); 
 		}
+		foreach($event_day as $key => $val){
+			foreach($val as $key => $val){
+				$temp[$i] = $val;
+				$i++;
+			}
+		}
+		$event_day = array_combine($temp, $temp);
 		$this->set('event_day',$event_day);
 	}
 
 	function conf(){
 		$sankasha = $this->params['form']['sankasha'];
 		$this->set('sankasha', $sankasha);
-
-		$this->set('event', $this->data['Event']);
-		$this->Event->set($this->data);
-		$error = $this->validateErrors($this->Event);
+		$this->set('reserv', $this->data['Reserv']);
+		$this->Reserv->set($this->data);
+		$error = $this->validateErrors($this->Reserv);
 		if($error){
 			//イベント日の取得
 			$event_day = $this->Event->findEventDay('オープンキャンパス');
 			for($i=0 ; $i<count($event_day) ; $i++){
 				$event_day[$i] = array($event_day[$i]['Event']['event_day'] => $event_day[$i]['Event']['event_day']); 
 			}
+			foreach($event_day as $key => $val){
+				foreach($val as $key => $val){
+					$temp[$i] = $val;
+					$i++;
+				}
+			}
+			$event_day = array_combine($temp, $temp);
 			$this->set('event_day',$event_day);
 
 			$this->set('errors', $error);
@@ -65,7 +78,6 @@ class OpencampusController extends AppController{
 
 		//予約表へinsertするための値でaveOpencampusに渡すための引数
 		$reservData = $this->data['Reserv'];
-
 		//午前、午後の予約している個数分だけsaveOpencampusメソッドを実行
 		if($reservData['am_field'] != null){
 			$whereEvent['Event.event_time'] = 'AM';

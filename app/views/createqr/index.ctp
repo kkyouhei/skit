@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="contents">
-	<p>QRコードを生成する単位を選択</p>
+	<h4 class="selectorH4">QRコードを生成する単位を選択</h4>
 		<div id="form">
 			<?php
 				echo $form->create(null,array('type'=>'post','action'=>'qrPrint'));

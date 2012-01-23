@@ -1,10 +1,13 @@
-#contents{
-
+﻿#contents{
+	/*background:url(../img/bg_con.gif) repeat-y;*/
+	width:90%;/*682px;*/
+	margin:20px 10px 10px 10px;
+	text-align:left;	/* テキスト位置 */
 	}
 #contents p{
 	margin:auto;
 	}
 #contents form{
-	margin:auto;
+	margin:10px 10px 10px 10px;
 	}
 }

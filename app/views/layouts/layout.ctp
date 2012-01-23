@@ -20,7 +20,7 @@
 		<!-- Header -->
 		<div id="header">
 			<ul>
-				<li id=contens01"><a href="http://localhost/skit/index">HOME</a></li>
+				<li id="menu01"><a href="http://localhost/skit/index">HOME</a></li>
 				<li id="menu02"><a href="http://localhost/skit/addstudent">個人情報登録</a></li>
 				<li id="menu03"><a href="http://localhost/skit/opencampus">オープンキャンパス予約</a></li>
 				<li id="menu04"><a href="http://localhost/skit/experience">体験入学予約</a></li>
@@ -33,13 +33,9 @@
 		
 		<!-- Contents -->
 		<div id="contents">
-			<!-- Main -->
-			<div id="main">
-				<?php
-					echo $content_for_layout;
-				?>
-			</div>
-			<!-- Main End -->
+			<?php
+				echo $content_for_layout;
+			?>
 		</div>
 		<!-- Content End -->
 		

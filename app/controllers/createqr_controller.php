@@ -2,7 +2,7 @@
 App::import('vendor', 'PHPExcel', array('file'=>'phpexcel' . DS . 'PHPExcel.php'));
 App::import('vendor', 'PHPExcel_IOFactory', array('file'=>'phpexcel' . DS . 'PHPExcel' . DS . 'IOFactory.php'));
 
-require_once("Image/QRCode.php");
+//require_once("Image/QRCode.php");
 
 class CreateQrController extends AppController{
 	public $name = 'Createqr';
@@ -192,8 +192,6 @@ class CreateQrController extends AppController{
 		$sheet = $xl->getActiveSheet();
 		$sheet->setTitle($sankashas[0]['Event']['event_day']);
 		$eventDay = $sankashas[0]['Event']['event_day']; 
-
-		define('QR_URI', 'http://chart.apis.google.com/chart');
 	
 		for($i=0 ; $i < count($sankashas) ; $i++){
 			//イベント日ごとにシートを変更するので
@@ -235,14 +233,14 @@ class CreateQrController extends AppController{
 			$reservs = $this->Reserv->findReserv($options);
 			
 			//QRコード生成
-			$imgfile = '/Applications/XAMPP/htdocs/img/' . $reservs[0]['Sankasha']['id'] . '.png';
+			$imgfile = '/Applications/XAMPP/htdocs/skit/app/webroot/img/' . $reservs[0]['Sankasha']['id'] . '.png';
 			if (!file_exists($imgfile)) {
-			$qr = QR_URI . '?chs=200x200&cht=qr&chld=m|1&chl=' . urlencode($reservs[0]['Sankasha']['id']);
+				$qr = 'http://localhost/qr_img/php/qr_img.php?d=' . $reservs[0]['Sankasha']['id']  . '&s=6';
 				copy($qr, $imgfile);
 			}
 			//QRコードをエクセルに貼付ける処理
 			$gazo = new PHPExcel_Worksheet_Drawing();
-			$gazo->setPath("/Applications/XAMPP/htdocs/img/" . $reservs[0]['Sankasha']['id']  . ".png");
+			$gazo->setPath("/Applications/XAMPP/htdocs/skit/app/webroot/img/" . $reservs[0]['Sankasha']['id']  . ".png");
 			$gazo->setCoordinates("B" . $qrcodeCell);
 			$gazo->setWorksheet($sheet);
 			//タイトルを出力するセル結合
@@ -256,7 +254,7 @@ class CreateQrController extends AppController{
 			//A1
 			$sheet->getStyleByColumnAndRow(0, $titleCell)->getFont()->setSize(20);
 			$sheet->getStyle('A' . $titleMergeCellStart)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-
+			
 			$A4['val'] = "開催日:{$reservs[0]['Event']['event_day']}"; 
 			if($reservs[0]['Event']['event_name'] == "オープンキャンパス"){
 				$sheet->setCellValue('A' . $titleMergeCellStart , $openTitle);
@@ -330,6 +328,8 @@ class CreateQrController extends AppController{
 			$A3CellEnd = $A3CellEnd + 50;
 			$qrcodeCell = $qrcodeCell + 50;
 			$titleCell = $titleCell + 50;
+			$A5['val'] = "";
+			$A6['val'] = "";
 		}//for($i < count($reservs)
 
 		//Excel2007形式で保存
